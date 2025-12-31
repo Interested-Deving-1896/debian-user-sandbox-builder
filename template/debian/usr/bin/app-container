@@ -1,3 +1,7 @@
 #!/bin/sh
+if [ "$(id -u -n)" != "%USER%" ]; then
+    echo "Attempt to run %APPNAME% as somebody else"
+    exit 1
+fi
 export DISPLAY=:0
 %APP_EXE% $1
